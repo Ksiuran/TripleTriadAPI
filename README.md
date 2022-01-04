@@ -4,24 +4,27 @@ NYI - Check back 01/05/22
 
 ## Project Description
 
-Here goes your awesome project description!
+Triple Triad is a staple deckbuilding competitive card game found in the Final Fantasy game series. This application focuses on the newest edition of the game from the massively multiplayer Final Fantasy XIV. The game consists of two players, each with their own deck of 6 unique cards, and hundreds of possible combinations of cards from a vast collection that grows with every update to the live game. Our API collects and stores to the database relevant information about the cards from an outside API to keep up to date with the growing collection database. The user interface supports account creation, authentication, and collection and deck management. 
 
 ## Technologies Used
 
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Java
+* Spring Boot
+* Spring Data JPA with Hibernate
+* PostgreSQL
+* JUnit
+* Mockito
 
 ## Features
 
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Creating an account
+* Adding individual or all cards to your account
+* Fetches cards from external api
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Finish Deck implementation
+* Finish Game implementation
 
 ## Getting Started
    
