@@ -43,8 +43,8 @@ To-do list:
 
 ## Contributors
 
-> Here list the people who have contributed to this project. (ignore this section, if its a solo project)
-
-## License
-
-This project uses the following license: [<license_name>](<link>).
+* Scott Hoisington
+* Alexander Snell
+* Jong Soo Chong
+* William Nelson
+* Wilson Neely
