@@ -21,6 +21,7 @@ List of features ready and TODOs for future development
 * Creating an account
 * Adding individual or all cards to your account
 * Fetches cards from external api
+* Building and saving a deck
 
 To-do list:
 * Finish Deck implementation
@@ -28,18 +29,53 @@ To-do list:
 
 ## Getting Started
    
-(include git clone command)
-(include all environment setup steps)
+Standard java application install, since we are not supplying a built jar you will need to pull the source code and build it.  
+`git clone https://github.com/Dragonimi/TripleTriadAPI`  
+Run the above command to obtain the source locally  
+`cd /TripleTriadAPI`  
+`git checkout dev`  
+Running those two commands will move you into the project root and switch you to the dev branch.  
+`git pull`  
+Sanity pull to make sure you are up-to-date.  
+Currently main is far behind dev and does not have the listed features.  
+At this point you should be in your IDE, this is a Maven project so do whatever action you need to to fetch the dependencies.  
+To get the application running you need a working application.yml, we has ours connected to an external database with sensitive information so it could not be uploaded.  
+Below is a sample application.yml to get the application running using a h2 local database.  
+```
+server:
+  port: 5000
+  servlet:
+    context-path: /ttapi
 
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
+spring:
+  application:
+    name: TripleTriadAPI
+  datasource:
+    url: jdbc:h2:file:./resources;MODE=PostgreSQL;
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  h2:
+    console:
+      enabled: true #http://localhost:5000/ttapi/h2-console
+      settings:
+       web-allow-others: false
+```
 
-- All the `code` required to get started
-- Images of what it should look like
+With this file placed in src/main/resources you should be good to go.  
+In the project root run `mvn spring-boot:run`   
+
+If you see something like `Started TtapiApplication in #.### seconds (JVM running for #.###)`  
+congratulations, the api is set up and running.  
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+After the application is successfully installed and running there is no direct interactions points with it, you will need to either use the ui we built [Ui Link](https://github.com/hoyzington/triple-triad-ui/tree/dev) or an application like Postman to interact with the endpoints directly.
 
 ## Contributors
 
