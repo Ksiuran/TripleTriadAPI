@@ -1,7 +1,5 @@
 # TripleTriadAPI
 
-NYI - Check back 01/05/22
-
 ## Project Description
 
 Triple Triad is a staple deckbuilding competitive card game found in the Final Fantasy game series. This application focuses on the newest edition of the game from the massively multiplayer Final Fantasy XIV. The game consists of two players, each with their own deck of 6 unique cards, and hundreds of possible combinations of cards from a vast collection that grows with every update to the live game. Our API collects and stores to the database relevant information about the cards from an outside API to keep up to date with the growing collection database. The user interface supports account creation, authentication, and collection and deck management. 
