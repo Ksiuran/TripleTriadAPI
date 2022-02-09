@@ -13,19 +13,15 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        // connect to this endpoint with SockJS
-        registry.addEndpoint("/triad-game-active").setAllowedOrigins("*").withSockJS();
-   }
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/topic");
+        config.setApplicationDestinationPrefixes("/app");
+    }
 
     @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-
-        // the prefix to use for all stomp client sends
-        registry.setApplicationDestinationPrefixes("/app");
-
-        // subscribe to this endpoint after connecting
-        registry.enableSimpleBroker("/game"); //Associated with requests to start multiplayer
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/chat");
+        registry.addEndpoint("/chat").withSockJS();
     }
 
 

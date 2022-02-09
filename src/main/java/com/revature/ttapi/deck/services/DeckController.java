@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -66,11 +67,9 @@ public class DeckController {
     //Fetch all decks by username
     @GetMapping("/fetch/{userID}")
     @ResponseStatus(HttpStatus.OK)
-    public ArrayList<DeckResponse> fetchAllDecksByUuid(@PathVariable UUID userID) {
+    public List<DeckResponse> fetchAllDecksByUuid(@PathVariable UUID userID) {
         //Trust that this cannot be invoked without a valid UUID cause deckbuilding is limited to login
-        ArrayList<DeckResponse> resp = (ArrayList<DeckResponse>) deckService.findAllDecksByUuid(userID).stream().map(DeckResponse::new).collect(Collectors.toList());
-        //If Empty list, return anyway, UI will deal with the user.
-        return resp;
+        return deckService.findAllDecksByUuid(userID).stream().map(DeckResponse::new).collect(Collectors.toList());
     }
 
 
